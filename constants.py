@@ -1,6 +1,11 @@
-UKRAINE_ID = {
-    4915: {'en': 'Ukraine', 'uk': 'Україна'},
-}
+import arrow
+
+DATE_FORMAT = "YYYY-MM-DD"
+DATA_URL = "https://api-covid19.rnbo.gov.ua/data"
+
+START_DATE = arrow.Arrow(2020, 1, 22)
+UKRAINE_START_DATE = arrow.Arrow(2020, 3, 3)
+
 OBLAST_IDS = {
     105: {'en': 'Vinnytsia', 'uk': 'Вінницька область'},
     107: {'en': 'Volynska', 'uk': 'Волинська область'},

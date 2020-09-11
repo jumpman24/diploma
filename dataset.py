@@ -1,16 +1,11 @@
 import arrow
 import h5py
-import datetime
 import requests
-from constants import COUNTRY_IDS, OBLAST_IDS, COMBINED_IDS
-
-DATE_FORMAT = "YYYY-MM-DD"
-DATA_URL = "https://api-covid19.rnbo.gov.ua/data"
-START_DATE = datetime.datetime(2020, 1, 22)
+from constants import DATA_URL, DATE_FORMAT, START_DATE, COUNTRY_IDS, OBLAST_IDS, COMBINED_IDS
 
 
-def fetch_data_entry(dt: datetime.date):
-    params = {"to": dt.strftime("%Y-%m-%d")}
+def fetch_data_entry(dt: arrow.Arrow):
+    params = {"to": dt.format(DATE_FORMAT)}
     response = requests.get(DATA_URL, params=params)
     if response.status_code == 200:
         return response.json()
