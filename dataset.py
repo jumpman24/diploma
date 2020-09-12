@@ -7,9 +7,9 @@ from constants import DATA_URL, DATE_FORMAT, START_DATE, COUNTRY_IDS, OBLAST_IDS
 def fetch_data_entry(dt: arrow.Arrow):
     params = {"to": dt.format(DATE_FORMAT)}
     response = requests.get(DATA_URL, params=params)
+
     if response.status_code == 200:
         return response.json()
-    return fetch_data_entry(dt)
 
 
 def fetch_all_data():

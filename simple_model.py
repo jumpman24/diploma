@@ -89,7 +89,7 @@ def run(x_key, y_key, start_from: int = 0, window: int = 14, validation_split=.0
         validation_split=validation_split,
         epochs=100,
         batch_size=x.shape[0],
-        callbacks=[callback, checkpoint],
+        callbacks=[callback],
     )
 
     plot_training_history_with_validation(history, with_validation=bool(validation_split))
@@ -101,9 +101,9 @@ def run(x_key, y_key, start_from: int = 0, window: int = 14, validation_split=.0
 
 
 if __name__ == '__main__':
-    x_key = "ukraine"
+    x_key = "oblast"
     y_key = "ukraine"
     start_from = 41
     window = 14
 
-    run(x_key, y_key, start_from, window)
+    run(x_key, y_key, start_from, window, 0.2)

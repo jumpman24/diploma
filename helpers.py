@@ -11,7 +11,7 @@ def load_dataset(key):
 
 
 def normalize_dataset(dataset):
-    axis = tuple(i for i in range(dataset.ndim-1))
+    axis = np.arange(dataset.ndim-1)
     mean = dataset.mean(axis=axis)
     std = dataset.std(axis=axis)
     normalized = (dataset - mean) / std
