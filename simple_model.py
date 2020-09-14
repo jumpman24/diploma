@@ -23,14 +23,6 @@ def create_simple_model(num_inputs: int, num_outputs: int):
     model = keras.Model(inputs=inputs, outputs=outputs)
     model.compile(optimizer="adam", loss="mse", metrics=["mae"])
     model.summary()
-    keras.utils.plot_model(
-        model,
-        to_file="simple_model.png",
-        show_shapes=True,
-        show_layer_names=False,
-        rankdir="LR",
-        dpi=300,
-    )
 
     return model
 
